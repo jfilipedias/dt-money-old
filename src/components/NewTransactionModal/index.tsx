@@ -32,15 +32,25 @@ export function NewTransactionModal({
   const [type, setType] = useState<TransactionType>(TransactionType.Deposit);
   const [category, setCategory] = useState('');
 
-  function handleCreateNewTransaction(event: FormEvent) {
+  async function handleCreateNewTransaction(event: FormEvent) {
     event.preventDefault();
 
-    createTransaction({
+    await createTransaction({
       title,
       amount,
       type,
       category,
     });
+
+    resetModalState();
+    onRequestClose();
+  }
+
+  function resetModalState() {
+    setTitle('');
+    setAmount(0);
+    setType(TransactionType.Deposit);
+    setCategory('');
   }
 
   return (

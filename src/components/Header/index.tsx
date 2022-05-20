@@ -2,7 +2,11 @@ import { Container, Content } from './styles';
 
 import logoImg from '../../assets/logo.svg';
 
-export function Header() {
+interface HeaderProps {
+  onNewTransactionClick: () => void;
+}
+
+export function Header({ onNewTransactionClick }: HeaderProps) {
   return (
     <Container>
       <Content>
@@ -11,7 +15,10 @@ export function Header() {
           alt="Logo do dt money. Imagem de um circulo verde contendo em seu interior o simbolo cifrão e ao lado o nome do web app"
         />
 
-        <button type="button">
+        <button
+          type="button"
+          onClick={onNewTransactionClick}
+        >
           Nova transação
         </button>
       </Content>

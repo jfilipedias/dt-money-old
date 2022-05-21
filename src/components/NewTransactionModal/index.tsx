@@ -1,12 +1,10 @@
+import { FormEvent, useContext, useState } from 'react';
 import Modal from 'react-modal';
 
 import { Container, RadioBox, TransactionTypeContainer } from './styles';
-
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import closeImg from '../../assets/close.svg';
-import { FormEvent, useContext, useState } from 'react';
-import { api } from '../../services/api';
 import { TransactionContext } from '../../TransactionContext';
 
 Modal.setAppElement('#root');
@@ -16,7 +14,7 @@ interface NewTransactionModalProps {
   onRequestClose: () => void;
 }
 
-enum TransactionType {
+export enum TransactionType {
   Deposit = 'deposit',
   Withdraw = 'withdraw',
 }
